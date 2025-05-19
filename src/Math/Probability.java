@@ -22,8 +22,9 @@ public class Probability {
 
     public static Probability init(double chance) {
         if(chance > 1 || chance < 0){
-            throw new RuntimeException("Incorrect Probability: " + chance);
+            throw new IllegalArgumentException("Incorrect Probability: " + chance);
         }
+
         return new Probability(chance);
     }
 
@@ -34,5 +35,9 @@ public class Probability {
 
     public Probability and(Probability p1) {
         return Probability.init(chance * p1.chance);
+    }
+
+    public Probability or(Probability p2) {
+        return this.and(p2).complement();
     }
 }

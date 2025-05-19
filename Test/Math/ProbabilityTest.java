@@ -12,7 +12,7 @@ class ProbabilityTest {
 
     @Test
     void greaterThanOne() {
-        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
+        IllegalArgumentException runtimeException = assertThrows(IllegalArgumentException.class, () -> {
             Probability.init(2);
         });
 
@@ -21,7 +21,7 @@ class ProbabilityTest {
 
     @Test
     void lessThanOne() {
-        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
+        IllegalArgumentException runtimeException = assertThrows(IllegalArgumentException.class, () -> {
             Probability.init(-1);
         });
 
@@ -48,5 +48,13 @@ class ProbabilityTest {
     void forTwoTails() {
         Probability p1 = Probability.init(0.5);
         assertEquals(Probability.init(0.25),p1.and(p1));
+    }
+
+    @Test
+    void atLeastOne() {
+        Probability p1 = Probability.init(0.75);
+        Probability p2 = Probability.init(0.5);
+
+        assertEquals(p1,p2.or(p2));
     }
 }

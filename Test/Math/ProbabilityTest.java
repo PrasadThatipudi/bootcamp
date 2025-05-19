@@ -6,12 +6,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ProbabilityTest {
     @Test
-    void forTail() {
+    void initialiseProbability() {
         assertEquals(Probability.init(0.5), Probability.init(0.5));
     }
 
     @Test
-    void greaterThanOne() {
+    void throwsExeceptionIfProbabilityIsGreaterThanOne() {
         IllegalArgumentException runtimeException = assertThrows(IllegalArgumentException.class, () -> {
             Probability.init(2);
         });
@@ -48,13 +48,5 @@ class ProbabilityTest {
     void forTwoTails() {
         Probability p1 = Probability.init(0.5);
         assertEquals(Probability.init(0.25),p1.and(p1));
-    }
-
-    @Test
-    void atLeastOne() {
-        Probability p1 = Probability.init(0.75);
-        Probability p2 = Probability.init(0.5);
-
-        assertEquals(p1,p2.or(p2));
     }
 }

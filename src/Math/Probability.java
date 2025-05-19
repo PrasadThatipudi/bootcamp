@@ -37,7 +37,14 @@ public class Probability {
         return Probability.init(chance * p1.chance);
     }
 
+    @Override
+    public String toString() {
+        return "Probability{" +
+                "chance=" + chance +
+                '}';
+    }
+
     public Probability or(Probability p2) {
-        return this.and(p2).complement();
+        return and(p2).complement();
     }
 }

@@ -19,4 +19,8 @@ public class Centimeter {
     public Centimeter(double cm) {
         this.cm = cm;
     }
+
+    public Millimeter toMillimeter() {
+        return new Millimeter(cm * 10);
+    }
 }

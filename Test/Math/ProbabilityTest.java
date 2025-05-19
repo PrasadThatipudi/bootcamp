@@ -12,16 +12,20 @@ class ProbabilityTest {
 
     @Test
     void greaterThanOne() {
-        assertThrows(RuntimeException.class, ()->{
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
             Probability.init(2);
         });
+
+        assertEquals("Incorrect Probability: 2.0", runtimeException.getMessage());
     }
 
     @Test
     void lessThanOne() {
-        assertThrows(RuntimeException.class, ()->{
+        RuntimeException runtimeException = assertThrows(RuntimeException.class, () -> {
             Probability.init(-1);
         });
+
+        assertEquals("Incorrect Probability: -1.0", runtimeException.getMessage());
     }
 
     @Test

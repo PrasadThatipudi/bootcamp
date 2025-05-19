@@ -22,7 +22,7 @@ public class Probability {
 
     public static Probability init(double chance) {
         if(chance > 1 || chance < 0){
-            throw new RuntimeException("Incorrect Probability");
+            throw new RuntimeException("Incorrect Probability: " + chance);
         }
         return new Probability(chance);
     }

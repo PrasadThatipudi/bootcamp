@@ -25,4 +25,18 @@ class RectangleTest {
 
         assertEquals(100, square.area());
     }
+
+    @Test
+    void perimeterOfRectangle() {
+        Rectangle rectangle = new Rectangle(10, 20);
+
+        assertEquals(60, rectangle.perimeter());
+    }
+
+    @Test
+    void perimeterOfSquare() {
+        Rectangle square = new Rectangle(10, 10);
+
+        assertEquals(40, square.perimeter());
+    }
 }

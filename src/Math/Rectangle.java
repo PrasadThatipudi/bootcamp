@@ -1,6 +1,6 @@
 package Math;
 
-public class Rectangle {
+public class Rectangle implements ClosedShape {
     private final int width;
     private final int height;
 
@@ -17,7 +17,13 @@ public class Rectangle {
                 '}';
     }
 
+    @Override
     public int area() {
         return width * height;
+    }
+
+    @Override
+    public int perimeter() {
+        return 2 * (width + height);
     }
 }

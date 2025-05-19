@@ -1,6 +1,6 @@
-package Math;
+package Math.Shapes;
 
-public class Square implements  ClosedShape{
+public class Square implements ClosedShape {
     private final int side;
 
     public Square(int side) {

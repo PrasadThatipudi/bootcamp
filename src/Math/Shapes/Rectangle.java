@@ -1,4 +1,4 @@
-package Math;
+package Math.Shapes;
 
 public class Rectangle implements ClosedShape {
     private final int width;

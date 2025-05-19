@@ -1,4 +1,4 @@
-package Math;
+package Math.Shapes;
 
 public interface ClosedShape {
     int area();

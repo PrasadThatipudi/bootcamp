@@ -1,4 +1,4 @@
-package Math;
+package Math.Shapes;
 
 import org.junit.jupiter.api.Test;
 

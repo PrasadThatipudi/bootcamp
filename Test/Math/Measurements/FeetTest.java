@@ -1,4 +1,4 @@
-package Math;
+package Math.Measurements;
 
 import org.junit.jupiter.api.Test;
 

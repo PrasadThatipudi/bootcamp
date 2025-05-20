@@ -86,4 +86,19 @@ class LengthTest {
 
         assertEquals(centimeter, millimeter);
     }
+
+    @Test
+    void addTwoSameInches() throws InvalidMeasurementException {
+        Length inch = Length.createInch(2);
+
+        assertEquals(Length.createInch(4), inch.add(inch));
+    }
+
+    @Test
+    void addTwoDifferentInches() throws InvalidMeasurementException {
+        Length inch1 = Length.createInch(2);
+        Length inch2 = Length.createInch(3);
+
+        assertEquals(Length.createInch(5), inch1.add(inch2));
+    }
 }

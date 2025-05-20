@@ -52,4 +52,8 @@ public class Length {
         }
         return new Length(cm * 10);
     }
+
+    public Length add(Length length) throws InvalidMeasurementException {
+        return new Length(mm + length.mm);
+    }
 }

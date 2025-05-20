@@ -11,8 +11,8 @@ public class Length {
         return new Length(mm);
     }
 
-    private static boolean isNegative(double mm) {
-        return mm < 0;
+    private static boolean isNegative(double number) {
+        return number < 0;
     }
 
     public static Length createFeet(double feet) throws InvalidMeasurementException {
@@ -32,18 +32,18 @@ public class Length {
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Length length)) return false;
-        return Double.compare(mm, length.mm) == 0;
+        return Double.compare(value, length.value) == 0;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(mm);
+        return Objects.hashCode(value);
     }
 
-    private final double mm;
+    private final double value;
 
-    public Length(double mm) {
-        this.mm = mm;
+    private Length(double mm) {
+        this.value = mm;
     }
 
     public static Length createCentimeter(double cm) throws InvalidMeasurementException {
@@ -54,6 +54,6 @@ public class Length {
     }
 
     public Length add(Length length) throws InvalidMeasurementException {
-        return new Length(mm + length.mm);
+        return new Length(value + length.value);
     }
 }

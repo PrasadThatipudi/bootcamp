@@ -4,15 +4,28 @@ import java.util.Objects;
 
 public class Length {
 
-    public static Length createMillimeter(double mm) {
+    public static Length createMillimeter(double mm) throws InvalidMeasurementException {
+        if(isNegative(mm)){
+            throw new InvalidMeasurementException();
+        }
         return new Length(mm);
     }
 
-    public static Length createFeet(double feet) {
-        return new Length(feet * 600);
+    private static boolean isNegative(double mm) {
+        return mm < 0;
     }
 
-    public static Length createInch(double inches) {
+    public static Length createFeet(double feet) throws InvalidMeasurementException {
+        if(isNegative(feet)){
+            throw new InvalidMeasurementException();
+        }
+        return new Length((feet * 600)/2);
+    }
+
+    public static Length createInch(double inches) throws InvalidMeasurementException {
+        if(isNegative(inches)){
+            throw new InvalidMeasurementException();
+        }
         return new Length((inches * 50) /2);
     }
 
@@ -33,7 +46,10 @@ public class Length {
         this.mm = mm;
     }
 
-    public static Length createCentimeter(double cm) {
+    public static Length createCentimeter(double cm) throws InvalidMeasurementException {
+        if(isNegative(cm)){
+            throw new InvalidMeasurementException();
+        }
         return new Length(cm * 10);
     }
 }

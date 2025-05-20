@@ -6,35 +6,65 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class LengthTest {
     @Test
-    void initiateCentimeter() {
+    void initiateCentimeter() throws InvalidMeasurementException {
         Length centimeter = Length.createCentimeter(10);
 
         assertEquals(Length.createCentimeter(10), centimeter);
     }
 
     @Test
-    void initiateMillimeter() {
+    void exceptionOnNegativeCm() {
+        assertThrows(InvalidMeasurementException.class, ()->{
+            Length.createCentimeter(-10);
+        });
+    }
+
+    @Test
+    void initiateMillimeter() throws InvalidMeasurementException {
         Length millimeter = Length.createMillimeter(10);
 
         assertEquals(Length.createMillimeter(10), millimeter);
     }
 
+
     @Test
-    void initiateFeet() {
+    void exceptionOnNegativeMm() {
+        assertThrows(InvalidMeasurementException.class, ()->{
+            Length.createMillimeter(-10);
+        });
+    }
+
+    @Test
+    void initiateFeet() throws InvalidMeasurementException {
         Length feet = Length.createFeet(10);
 
         assertEquals(Length.createFeet(10), feet);
     }
 
+
     @Test
-    void initiateInch() {
+    void exceptionOnNegativeInches() {
+        assertThrows(InvalidMeasurementException.class, ()->{
+            Length.createInch(-10);
+        });
+    }
+
+    @Test
+    void exceptionOnNegativeFeet() {
+        assertThrows(InvalidMeasurementException.class, ()->{
+            Length.createFeet(-10);
+        });
+    }
+
+    @Test
+    void initiateInch() throws InvalidMeasurementException {
         Length inch = Length.createInch(10);
 
         assertEquals(Length.createInch(10), inch);
     }
 
     @Test
-    void compareWithFeetAndInch() {
+    void compareWithFeetAndInch() throws InvalidMeasurementException {
         Length feet = Length.createFeet(1);
         Length inch = Length.createInch(12);
 
@@ -42,7 +72,7 @@ class LengthTest {
     }
 
     @Test
-    void compareInchAndCm() {
+    void compareInchAndCm() throws InvalidMeasurementException {
         Length centimeter = Length.createCentimeter(5);
         Length inch = Length.createInch(2);
 
@@ -50,7 +80,7 @@ class LengthTest {
     }
 
     @Test
-    void compareCmAndMm() {
+    void compareCmAndMm() throws InvalidMeasurementException {
         Length centimeter = Length.createCentimeter(1);
         Length millimeter = Length.createMillimeter(10);
 

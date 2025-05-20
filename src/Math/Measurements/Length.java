@@ -5,10 +5,8 @@ import java.util.Objects;
 public class Length {
 
     public static Length createMillimeter(double mm) throws InvalidMeasurementException {
-        if(isNegative(mm)){
-            throw new InvalidMeasurementException();
-        }
-        return new Length(mm);
+
+        return Length.createLength(mm);
     }
 
     private static boolean isNegative(double number) {
@@ -16,17 +14,11 @@ public class Length {
     }
 
     public static Length createFeet(double feet) throws InvalidMeasurementException {
-        if(isNegative(feet)){
-            throw new InvalidMeasurementException();
-        }
-        return new Length((feet * 600)/2);
+        return Length.createLength((feet * 600)/2);
     }
 
     public static Length createInch(double inches) throws InvalidMeasurementException {
-        if(isNegative(inches)){
-            throw new InvalidMeasurementException();
-        }
-        return new Length((inches * 50) /2);
+        return Length.createLength((inches * 50) /2);
     }
 
     @Override
@@ -47,13 +39,18 @@ public class Length {
     }
 
     public static Length createCentimeter(double cm) throws InvalidMeasurementException {
-        if(isNegative(cm)){
-            throw new InvalidMeasurementException();
-        }
-        return new Length(cm * 10);
+        return Length.createLength(cm * 10);
     }
 
     public Length add(Length length) throws InvalidMeasurementException {
-        return new Length(value + length.value);
+        return Length.createLength(value + length.value);
+    }
+
+    private static Length createLength(double length) throws InvalidMeasurementException {
+        if(isNegative(length)){
+            throw new InvalidMeasurementException();
+        }
+
+        return new Length(length);
     }
 }

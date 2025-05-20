@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class VolumeTest {
+class VolumesTest {
     @Test
     void initiateLiter() throws InvalidMeasurementException {
         Volume liter = Volume.createLiter(10);

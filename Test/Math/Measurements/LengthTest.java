@@ -32,4 +32,28 @@ class LengthTest {
 
         assertEquals(Length.createInch(10), inch);
     }
+
+    @Test
+    void compareWithFeetAndInch() {
+        Length feet = Length.createFeet(1);
+        Length inch = Length.createInch(12);
+
+        assertEquals(feet, inch);
+    }
+
+    @Test
+    void compareInchAndCm() {
+        Length centimeter = Length.createCentimeter(5);
+        Length inch = Length.createInch(2);
+
+        assertEquals(inch, centimeter);
+    }
+
+    @Test
+    void compareCmAndMm() {
+        Length centimeter = Length.createCentimeter(1);
+        Length millimeter = Length.createMillimeter(10);
+
+        assertEquals(centimeter, millimeter);
+    }
 }

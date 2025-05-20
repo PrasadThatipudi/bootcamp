@@ -13,7 +13,7 @@ public class Length {
     }
 
     public static Length createInch(double inches) {
-        return new Length(inches * 50);
+        return new Length((inches * 50) /2);
     }
 
     @Override

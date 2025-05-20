@@ -101,4 +101,12 @@ class LengthTest {
 
         assertEquals(Length.createInch(5), inch1.add(inch2));
     }
+
+    @Test
+    void addInchesAndCm() throws InvalidMeasurementException {
+        Length inch = Length.createInch(2);
+        Length centimeter = Length.createCentimeter(2.5);
+
+        assertEquals(Length.createInch(3), inch.add(centimeter));
+    }
 }

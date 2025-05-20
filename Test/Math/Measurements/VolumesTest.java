@@ -26,4 +26,12 @@ class VolumesTest {
 
         assertEquals(gallon, liters);
     }
+
+    @Test
+    void equalityBetweenGallonAndLiter() {
+        Volumes gallon = Volumes.createGallon(1/3.78);
+        Volumes liters = Volumes.createLiter(1);
+
+        assertEquals(gallon, liters);
+    }
 }
